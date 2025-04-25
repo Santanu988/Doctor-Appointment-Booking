@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title><%=title%></title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+  
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Health Care Medical Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Novena HTML Template v1.0">
+
+
+  <!-- 
+  Essential stylesheets
+  =====================================-->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+<!-- fontawsome link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body id="top">
+
+<header>
+	
+    <%if(success_msg[0]){%>
+		<h5 class="alert alert-success">
+			<%=success_msg%>
+		</h5>
+		<%}%>
+			<%if(error_msg[0]){%>
+				<h5 class="alert alert-danger">
+					<%=error_msg%>
+				</h5>
+				<%}%>
+					<header>
+						<%-include ('../layout/weblayout/topbar.ejs')%>
+							
+
+								<!-- navbar include -->
+								<%-include('../layout/weblayout/navbar.ejs')%>
+</header>
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">All Doctors</span>
+          <h1 class="text-capitalize mb-5 text-lg">Specalized doctors</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- portfolio -->
+<section class="section doctors">
+  <div class="container">
+  	  <div class="row justify-content-center">
+             <div class="col-lg-6 text-center">
+                <div class="section-title">
+                    <h2>Doctors</h2>
+                    <div class="divider mx-auto my-4"></div>
+                    <p>We provide a wide range of creative services adipisicing elit. Autem maxime rem modi eaque, voluptate. Beatae officiis neque </p>
+                </div>
+            </div>
+        </div>
+
+  
+
+    <div class="row shuffle-wrapper portfolio-gallery">
+		
+		<%doctordata.forEach((data)=>{%> 
+		
+      	<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
+	      	<div class="position-relative doctor-inner-box">
+		        <div class="doctor-profile">
+	               <div class="doctor-img">
+	               		<img src="<%=data.image%>" alt="doctor-image" class="img-fluid " style="height: 200px; width: 200px; object-fit: cover;">
+	               </div>
+	            </div>
+                <div class="content mt-3">
+                	<h4 class="mb-0"><a href="/singledoctor/<%=data._id%>"><%=data.name%></a></h4>
+                	<p><%=data.department%></p>
+                </div> 
+	      	</div>
+      	</div>
+		  <%})%>
+    
+    </div>
+  </div>
+</section>
+<!-- /portfolio -->
+<section class="section cta-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7">
+				<div class="cta-content">
+					<div class="divider mb-4"></div>
+					<h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy</span></h2>
+					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">Get appoinment<i class="icofont-simple-right  ml-2"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- footer Start -->
+<!-- footer Include -->
+<%-include('../layout/weblayout/footer.ejs')%>
+   
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+    <script src="plugins/jquery/jquery.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="plugins/shuffle/shuffle.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+    
+    <script src="js/script.js"></script>
+
+  </body>
+  </html>

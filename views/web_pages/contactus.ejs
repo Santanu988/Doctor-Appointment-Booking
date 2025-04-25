@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title><%=title%></title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Health Care Medical Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Novena HTML Template v1.0">
+
+    
+    <!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+
+  <!-- 
+  Essential stylesheets
+  =====================================-->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+<!-- fontawsome link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body id="top">
+
+<header>
+    <%if(success_msg[0]){%>
+		<h5 class="alert alert-success">
+			<%=success_msg%>
+		</h5>
+		<%}%>
+			<%if(error_msg[0]){%>
+				<h5 class="alert alert-danger">
+					<%=error_msg%>
+				</h5>
+				<%}%>
+					<header>
+						<%-include ('../layout/weblayout/topbar.ejs')%>
+							
+
+								<!-- navbar include -->
+								<%-include('../layout/weblayout/navbar.ejs')%>
+</header>
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Contact Us</span>
+          <h1 class="text-capitalize mb-5 text-lg">Get in Touch</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Contact Us</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- contact form start -->
+
+<section class="section contact-info pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="contact-block mb-4 mb-lg-0">
+          <i class="icofont-live-support"></i>
+          <h5>Call Us</h5>
+          +823-4565-13456
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="contact-block mb-4 mb-lg-0">
+          <i class="icofont-support-faq"></i>
+          <h5>Email Us</h5>
+          contact@mail.com
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="contact-block mb-4 mb-lg-0">
+          <i class="icofont-location-pin"></i>
+          <h5>Location</h5>
+          North Main Street,Brooklyn Australia
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-form-wrap section">
+  
+</section>
+
+
+
+
+
+<!-- footer Include -->
+<%-include('../layout/weblayout/footer.ejs')%>
+   
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+    <script src="plugins/jquery/jquery.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="plugins/shuffle/shuffle.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+    
+    <script src="js/script.js"></script>
+
+  </body>
+  </html>
