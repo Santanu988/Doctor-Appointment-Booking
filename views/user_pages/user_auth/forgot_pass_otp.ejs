@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Novena- Health Care &amp; Medical template</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Health Care Medical Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Novena HTML Template v1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+
+  <!-- 
+  Essential stylesheets
+  =====================================-->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/plugins/icofont/icofont.min.css">
+  <link rel="stylesheet" href="/plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="/plugins/slick-carousel/slick/slick-theme.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+
+
+  <!-- fontawsome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapper{
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.wrapper h2{
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.wrapper h2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 28px;
+  border-radius: 12px;
+  background: #4070f4;
+}
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+form .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #4070f4;
+}
+form .policy{
+  display: flex;
+  align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #4070f4;
+  cursor: pointer;
+}
+.input-box.button input:hover{
+  background: #0e4bf1;
+}
+form .text h3{
+ color: #333;
+ width: 100%;
+ text-align: center;
+}
+form .text h3 a{
+  color: #4070f4;
+  text-decoration: none;
+}
+form .text h3 a:hover{
+  text-decoration: underline;
+}
+  </style>
+
+</head>
+
+<body id="top">
+
+<header>
+    <%if(success_msg[0]){%><h5 class="alert alert-success"> <%=success_msg%></h5><%}%>
+	<%if(error_msg[0]){%> <h5 class="alert alert-danger"><%=error_msg%></h5><%}%>
+  <header>
+    <!-- topbar Include -->
+    <%-include ('../../layout/weblayout/topbar.ejs')%>
+	<!-- nav section -->
+    <%-include ('../../layout/weblayout/navbar.ejs')%>
+	
+</header>
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <h2 class="text-capitalize mb-5  text-white">Join us today and unlock amazing services! Login now!</h2>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+             <span class="h3">Call for an Emergency Service!</span>
+              <h2 class="text-color mt-3">+84 789 1256 </h2>
+          </div>
+      </div>
+
+      <div class="col-lg-8">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <div class="wrapper">
+              
+              
+              <% if(otpSend=='false'){%>
+                <h2>Forgot Password</h2>
+                <form action="/sendOtp" method="post">
+               
+                    <div class="input-box">
+                      <input type="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                   
+                    <div class="input-box button">
+                      <input type="Submit" value="Send Otp">
+                    </div>
+                   
+                  </form>
+                <%}
+                else{%>
+                    <h2>Otp Verify</h2>
+                    <form action="/verifyotp" method="post">
+                        <div class="input-box">
+                            <input type="text" name="otp" placeholder="Enter otp" required>
+                            <input type="hidden" name="email" value="<%=email%>">
+                          </div>
+                        <div class="input-box">
+                          <input type="password" name="password" placeholder="Enter new password" required>
+                        </div>
+                        <div class="input-box">
+                          <input type="password" name="confirm_password" placeholder="Enter confirm password" required>
+                        </div>
+                       
+                        <div class="input-box button">
+                          <input type="Submit" value="Submit">
+                        </div>
+                      </form>
+                    <%}%>
+              
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer include -->
+<%-include('../../layout/weblayout/footer.ejs')%>
+<!-- footer end -->
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+    <script src="plugins/jquery/jquery.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="plugins/shuffle/shuffle.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+    
+    <script src="js/script.js"></script>
+
+
+    <script src="/plugins/jquery/jquery.js"></script>
+    <script src="/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="/plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="/plugins/shuffle/shuffle.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
+    <script src="/plugins/google-map/gmap.js"></script>
+    
+    <script src="/js/script.js"></script>
+
+  </body>
+  </html>

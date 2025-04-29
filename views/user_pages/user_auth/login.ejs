@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+
+     <!-- Include Meta Information-->
+     <%-include('../../layout/weblayout/meta.ejs')%>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapper{
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.wrapper h2{
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.wrapper h2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 28px;
+  border-radius: 12px;
+  background: #4070f4;
+}
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+form .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #4070f4;
+}
+form .policy{
+  display: flex;
+  align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #4070f4;
+  cursor: pointer;
+}
+.input-box.button input:hover{
+  background: #0e4bf1;
+}
+form .text h3{
+ color: #333;
+ width: 100%;
+ text-align: center;
+}
+form .text h3 a{
+  color: #4070f4;
+  text-decoration: none;
+}
+form .text h3 a:hover{
+  text-decoration: underline;
+}
+  </style>
+
+</head>
+
+<body id="top">
+  <%if(success_msg[0]){%><h5 class="alert alert-success"> <%=success_msg%></h5><%}%>
+	<%if(error_msg[0]){%> <h5 class="alert alert-danger"><%=error_msg%></h5><%}%>
+  <header>
+    <!-- topbar Include -->
+    <%-include ('../../layout/weblayout/topbar.ejs')%>
+	<!-- nav section -->
+    <%-include ('../../layout/weblayout/navbar.ejs')%>
+</header>
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <h2 class="text-capitalize mb-5  text-white">Access Your Account </h2>
+          <h5><span class="text-white">Sign in to access your personalized healthcare services.</span></h5>
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+             <span class="h3">Call for an Emergency Service!</span>
+              <h2 class="text-color mt-3">+84 789 1256 </h2>
+          </div>
+      </div>
+
+      <div class="col-lg-8">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <div class="wrapper">
+              <h2>Login</h2>
+              <%if(success_msg[0]){%><h5 class="alert alert-success"> <%=success_msg%></h5><%}%>
+              <%if(error_msg[0]){%> <h5 class="alert alert-danger"><%=error_msg%></h5><%}%>
+              <form action="/userlogin" method="post">
+                <div class="input-box">
+                  <input type="text" name="email" placeholder="Enter your email" required>
+                </div>                
+                <div class="input-box">
+                  <input type="password" name="password" placeholder="Password" required>
+                </div>              
+                <div class="input-box button">
+                  <input type="Submit" value="Login">
+                </div>
+                <div class="text">
+                  <h3>Already have an account? <a href="/register">Register Now</a></h3>
+                </div>
+              </form>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer include -->
+<%-include('../../layout/weblayout/footer.ejs')%>
+</body>
+</html>

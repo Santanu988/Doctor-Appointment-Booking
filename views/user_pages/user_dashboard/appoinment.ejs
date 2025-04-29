@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+
+  <!-- Include Meta Information-->
+  <%-include('../../layout/weblayout/meta.ejs')%>
+
+</head>
+
+<body id="top">
+  <%if(success_msg[0]){%><h5 class="alert alert-success"> <%=success_msg%></h5><%}%>
+	<%if(error_msg[0]){%> <h5 class="alert alert-danger"><%=error_msg%></h5><%}%>
+  <header>
+    <!-- topbar include -->
+    <%-include ('../../layout/weblayout/topbar.ejs')%>
+    
+  
+    <!-- nav section -->
+      <%-include ('../../layout/weblayout/navbar.ejs')%>
+  </header>
+  <div  style="height: 30vh; width: 100%; display: flex; align-items: center;justify-content: center;" class="bg-1" >
+    <div class="overlay" >
+      <div class="row">
+        <div class="col-md-12" >
+          
+            <h2 class="text-capitalize mb-4 text-center text-white pt-4">Book your Seat </h2>
+            <h5 class="text-center"><span class="text-white ">Appoinment</span></h5>
+            <!-- <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">/</span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+            </ul> -->
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+
+  <section class="appoinment section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+            <span class="h3">Call for an Emergency Service!</span>
+            <h2 class="text-color mt-3">+84 789 1256 </h2>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <h2 class="mb-2 title-color">Book an appoinment</h2>
+            <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste
+              dolorum atque similique praesentium soluta.</p>
+            <form id="#" class="appoinment-form" method="post" action="/appointmentsdatastore">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <select name="dept" id="department" class="form-control" required>
+                      <option value="">-- Select Department --</option>
+                      <% departments.forEach(dept => { %>
+                        <option value="<%= dept %>"><%= dept %></option>
+                      <% }); %>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <select name="doctor" id="doctor" class="form-control" required>
+                      <option value="">-- Select Doctor --</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <select name="date" id="date" class="form-control" required>
+                      <option value="">-- Select Date --</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">                
+                    <select name="time" id="time" class="form-control" required>
+                      <option value="">-- Select Time --</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input name="name" id="name" type="text" class="form-control" placeholder="Full Name" required>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input name="email" id="phone" type="email" class="form-control" placeholder="Enter Email"  required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input name="blood" id="phone" type="text" class="form-control" placeholder="Blood Group" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input name="age" id="phone" type="Number" class="form-control" placeholder="Enter Age" required>
+                  </div>
+                </div>                
+                <div class="col-lg-6">
+                  <div class="form-group">                                     
+                      <select class="form-control" name="gender" id="exampleInputEmail7"
+                      required >
+                      <option value="">Gendar</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                  </select>                    
+                  </div>
+                </div>                
+                <div class="col-lg-12">
+                  <div class="form-group-2 mb-4">
+                    <textarea name="message" id="message" class="form-control"  rows="6"
+                      placeholder="Your Message"></textarea>
+                  </div>
+                </div>                
+                <div class="col-lg-12">
+                  <button type="submit" class="btn btn-primary">Book Appointment</button>
+                </div> 
+                <script>
+                  const allDoctors = <%- JSON.stringify(doctors) %>;
+                
+                  document.getElementById("department").addEventListener("change", function () {
+                    const selectedDept = this.value;
+                    const doctorSelect = document.getElementById("doctor");
+                    doctorSelect.innerHTML = '<option value="">-- Select Doctor --</option>';
+                
+                    allDoctors
+                      .filter(doc => doc.department === selectedDept)
+                      .forEach(doc => {
+                        const opt = document.createElement("option");
+                        opt.value = doc._id;
+                        opt.textContent = doc.name;
+                        doctorSelect.appendChild(opt);
+                      });
+                
+                    document.getElementById("date").innerHTML = '<option value="">-- Select Date --</option>';
+                    document.getElementById("time").innerHTML = '<option value="">-- Select Time --</option>';
+                  });
+                
+                  document.getElementById("doctor").addEventListener("change", function () {
+                    const doctorId = this.value;
+                    const selectedDoctor = allDoctors.find(doc => doc._id === doctorId);
+                    const dateSelect = document.getElementById("date");
+                    dateSelect.innerHTML = '<option value="">-- Select Date --</option>';
+                
+                    if (!selectedDoctor || !selectedDoctor.date_and_time) return;
+                
+                    // Convert available day to real upcoming date
+                    const today = new Date();
+                    const upcomingDates = [];
+                
+                    selectedDoctor.date_and_time.forEach(slot => {
+                      const date = getNextDayDate(slot.day);
+                      upcomingDates.push({ date, time: slot.time });
+                    });
+                
+                    upcomingDates.forEach(slot => {
+                      const opt = document.createElement("option");
+                      opt.value = slot.date;
+                      opt.textContent = slot.date;
+                      opt.dataset.time = slot.time;
+                      dateSelect.appendChild(opt);
+                    });
+                
+                    document.getElementById("time").innerHTML = '<option value="">-- Select Time --</option>';
+                  });
+                
+                  document.getElementById("date").addEventListener("change", function () {
+                    const selectedOption = this.selectedOptions[0];
+                    const timeSelect = document.getElementById("time");
+                    timeSelect.innerHTML = '<option value="">-- Select Time --</option>';
+                
+                    if (selectedOption?.dataset?.time) {
+                      const opt = document.createElement("option");
+                      opt.value = selectedOption.dataset.time;
+                      opt.textContent = selectedOption.dataset.time;
+                      timeSelect.appendChild(opt);
+                    }
+                  });
+                
+                  function getNextDayDate(day) {
+                    const daysMap = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    const today = new Date();
+                    const targetDay = daysMap.indexOf(day);
+                    const diff = (targetDay + 7 - today.getDay()) % 7;
+                    const nextDate = new Date(today.getTime() + diff * 24 * 60 * 60 * 1000);
+                    return nextDate.toISOString().split("T")[0]; // format YYYY-MM-DD
+                  }
+                </script>                                           
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+  <%-include('../../layout/weblayout/dashboard_footer.ejs')%>
