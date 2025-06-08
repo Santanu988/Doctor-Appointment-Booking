@@ -1,4 +1,4 @@
-# 🏥 Doctor Appointment Booking System
+# 🏥 Lifeline - Doctor Appointment Booking System
 
 A full-featured healthcare appointment booking platform built with **Node.js**, **Express**, **MongoDB**, and **EJS**. This system includes user and admin portals, dynamic appointment booking, authentication, email notifications, and PDF generation.
 
